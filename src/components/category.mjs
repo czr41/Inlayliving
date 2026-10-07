@@ -1,0 +1,2 @@
+export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function CategoryCard(category,index){return `<a class="room rise" href="#calc-open" data-calc data-category="${escapeHTML(category.id)}"><span class="idx">${String(index+1).padStart(2,'0')}</span><div><h3 data-content="${escapeHTML(category.titleKey)}">${escapeHTML(category.title)}</h3><p data-content="${escapeHTML(category.descriptionKey)}">${escapeHTML(category.description)}</p></div><span class="go">get costing</span></a>`;}

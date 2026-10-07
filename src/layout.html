@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INLAY — Modular Kitchens, Wardrobes & Home Interiors, Hyderabad</title>
+<meta name="description" content="INLAY builds modular kitchens, wardrobes and full home interiors in Hyderabad. One team, one quote, handed over in 30–45 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Tinos:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<div id="boot">
+  <div class="word"><img src="/assets/inlay-1.png" alt="INLAY"></div>
+  <div class="pct" id="pct">0%</div>
+  <div id="bootbar"></div>
+</div>
+
+<div id="rail"></div>
+
+{{header}}
+
+{{navigation}}
+
+<main id="top">
+
+  <!-- HERO -->
+  {{strip}}
+
+  <!-- WHY -->
+  {{why}}
+
+  <!-- WHAT WE DO -->
+  {{what}}
+
+  <!-- 3D -->
+  {{seeit}}
+
+  <!-- PROCESS -->
+  {{process}}
+
+  <!-- PROMISES -->
+  {{promises}}
+
+  <!-- MATERIALS -->
+  {{materials}}
+
+  <!-- VISIT -->
+  {{visit}}
+
+  <!-- BLOG -->
+  {{journal}}
+
+  <!-- CAREERS -->
+  {{careers}}
+
+  <!-- CLOSING -->
+  {{closing}}
+  <!-- FAQ -->
+  {{faq}}
+
+</main>
+
+{{footer}}
+
+<!-- CALCULATOR -->
+<div id="calc" role="dialog" aria-modal="true" aria-labelledby="calch">
+  <div class="scrim" data-close></div>
+  <div class="box">
+    <button class="close" data-close aria-label="Close">×</button>
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="meta"><span id="stepname">your home</span><span id="stepno">1 / 3</span></div>
+    <h3 id="calch" data-content="copy-60">What will your home cost?</h3>
+    <p class="sub" data-content="copy-61">Answer six questions. An INLAY consultant works out your number and calls you back the same day.</p>
+
+    <div class="pane on" data-pane="1">
+      <label>Property type</label>
+      <div class="chips" data-group="property">
+        <button class="chip" aria-pressed="false">Apartment</button>
+        <button class="chip" aria-pressed="false">Villa</button>
+        <button class="chip" aria-pressed="false">Independent house</button>
+      </div>
+      <label>Configuration</label>
+      <div class="chips" data-group="bhk">
+        <button class="chip" aria-pressed="false">1 BHK</button>
+        <button class="chip" aria-pressed="false">2 BHK</button>
+        <button class="chip" aria-pressed="false">3 BHK</button>
+        <button class="chip" aria-pressed="false">4+ BHK</button>
+      </div>
+      <label for="area">Carpet area (sq ft)</label>
+      <input id="area" type="number" inputmode="numeric" placeholder="1250">
+      <label for="loc">Locality</label>
+      <input id="loc" type="text" placeholder="Gachibowli">
+    </div>
+
+    <div class="pane" data-pane="2">
+      <label>What do you need?</label>
+      <div class="chips" data-group="scope">
+        <button class="chip" aria-pressed="false">Full home interiors</button>
+        <button class="chip" aria-pressed="false">Kitchen only</button>
+        <button class="chip" aria-pressed="false">Wardrobes only</button>
+        <button class="chip" aria-pressed="false">Not sure yet</button>
+      </div>
+      <label for="poss">Possession date</label>
+      <input id="poss" type="month">
+    </div>
+
+    <div class="pane" data-pane="3">
+      <label for="nm">Name</label>
+      <input id="nm" type="text" placeholder="Your name">
+      <label for="ph">Phone</label>
+      <input id="ph" type="tel" placeholder="+91">
+      <label for="tm">Best time to call</label>
+      <select id="tm"><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Today, as soon as possible</option></select>
+    </div>
+
+    <div class="pane" data-pane="4">
+      <h3 style="margin-top:0" data-content="copy-62">Your enquiry is ready to send.</h3>
+      <p class="sub" data-content="copy-63">Please send the message in WhatsApp or your email app to complete your enquiry.</p>
+      <button class="btn solid" data-close>Close</button>
+    </div>
+
+    <p id="calc-status" role="status" aria-live="polite"></p><div class="acts" id="acts">
+      <button class="btn" id="back" style="visibility:hidden">Back</button>
+      <button class="btn solid" id="next">Continue</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/assets/site.js"></script>
+</body>
+</html>

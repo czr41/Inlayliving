@@ -1,0 +1,23 @@
+[
+  {
+    "id": "kitchens",
+    "title": "Modular kitchens",
+    "description": "Built in a factory, fitted in your home. Hettich and Blum hardware as standard, not as an upgrade.",
+    "titleKey": "copy-6",
+    "descriptionKey": "copy-7"
+  },
+  {
+    "id": "wardrobes",
+    "title": "Wardrobes",
+    "description": "Hinged, sliding, walk-in. Sized to your room, not to a catalogue.",
+    "titleKey": "copy-8",
+    "descriptionKey": "copy-9"
+  },
+  {
+    "id": "interiors",
+    "title": "Full home interiors",
+    "description": "Living, dining, bedrooms, kids' rooms, pooja and TV units, false ceiling and wall finishes.",
+    "titleKey": "copy-10",
+    "descriptionKey": "copy-11"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "name": "inlay-living",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}
