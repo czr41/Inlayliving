@@ -8,7 +8,7 @@ Dependency-free modular static rendering with Vercel Node API routes. The suppli
 
 ## Backend activation
 
-Create a separate Inlay Supabase project in the organization chosen by the owner. Run backend-setup.sql, configure SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY on Vercel, create the initial Auth account for amogh2010@gmail.com, and add its actual user ID to inlay_staff. Use Supabase's dashboard for secure password setup; never commit credentials. Redeploy after setting environment variables. Public pages use bundled defaults until the backend is ready. Staff publishing and uploads intentionally fail closed while unconfigured.
+Create a separate Inlay Supabase project in the organization chosen by the owner. Run backend-setup.sql, configure SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY on Vercel, create the initial Auth account for the designated staff member, and add its actual user ID to inlay_staff. Use Supabase's dashboard for secure password setup; never commit credentials. Redeploy after setting environment variables. Public pages use bundled defaults until the backend is ready. Staff publishing and uploads intentionally fail closed while unconfigured.
 
 ## Content limitations
 

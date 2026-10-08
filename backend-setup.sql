@@ -12,4 +12,4 @@ create policy content_staff on public.inlay_content for update to authenticated 
 insert into public.inlay_content(id,data) values('live','{"text":{},"media":{},"contact":{"email":"info@inlayliving.in"}}');
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values('inlay-media','inlay-media',true,3000000,array['image/jpeg','image/png','image/webp']);
 create policy media_staff_insert on storage.objects for insert to authenticated with check(bucket_id='inlay-media' and exists(select 1 from public.inlay_staff where user_id=(select auth.uid())));
--- Create amogh2010@gmail.com in Auth, then add its actual auth.users UUID to inlay_staff.
+-- Create the designated staff account in Auth, then add its actual auth.users UUID to inlay_staff.
