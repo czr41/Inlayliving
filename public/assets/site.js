@@ -1,4 +1,4 @@
-import { loadContent } from "./content.js";
+import { loadContent } from "./content.js?v=2";
 await loadContent();
 
 (function(){
@@ -21,17 +21,8 @@ await loadContent();
   }
   window.addEventListener('scroll',function(){onScroll();tone();},{passive:true}); onScroll();
 
-  /* header colour over light sections */
-  var topbar=document.querySelector('.topbar'), lights=[].slice.call(document.querySelectorAll('.paper'));
-  function tone(){
-    var y=38, on=false;
-    for(var i=0;i<lights.length;i++){
-      var r=lights[i].getBoundingClientRect();
-      if(r.top<=y && r.bottom>=y){ on=true; break; }
-    }
-    var navOpen = nav && nav.classList.contains('open');
-    topbar.classList.toggle('onlight', on && !navOpen);
-  }
+  /* The solid header keeps its light logo and text on every section. */
+  function tone(){}
 
   /* nav */
   var nav=document.getElementById('nav'), navbtn=document.getElementById('navbtn');

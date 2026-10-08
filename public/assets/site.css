@@ -41,15 +41,15 @@ a{color:inherit}
 
 /* ---------- chrome ---------- */
 .topbar{
-  position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:60;
+  position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:66;
   display:flex;align-items:center;justify-content:space-between;
-  padding:22px var(--pad);transition:color .35s;
+  padding:22px var(--pad);background:var(--plum);color:var(--paper);box-shadow:0 -20px 0 20px var(--plum);
 }
 .mark{display:block;line-height:0;text-decoration:none}
 .mark .lp{display:none}
-.topbar.onlight{color:var(--royal)}
-.topbar.onlight .mark .lw{display:none}
-.topbar.onlight .mark .lp{display:block}
+.topbar.onlight{color:var(--paper)}
+.topbar.onlight .mark .lw{display:block}
+.topbar.onlight .mark .lp{display:none}
 .mark img{height:clamp(17px,1.5vw,22px);width:auto}
 #boot .word img{width:clamp(180px,34vw,460px);height:auto}
 .flogo img{width:112px;height:auto;margin-bottom:4px}
