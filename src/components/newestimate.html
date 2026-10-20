@@ -1,0 +1,32 @@
+<!-- ============ ESTIMATE MODAL ============ -->
+<div class="modal" id="est" role="dialog" aria-modal="true" aria-labelledby="estH">
+  <div class="scrim" data-mclose></div>
+  <div class="box">
+    <button class="close" data-mclose aria-label="Close"><svg class="i"><use href="#i-x"/></svg></button>
+    <form id="estForm" novalidate>
+      <h3 id="estH">Get a <em>free estimate</em></h3>
+      <p class="sub">Fill in your details — an INLAY consultant calls you back the same day.</p>
+      <div class="fg">
+        <div><label for="fPlan">Planning interiors <i>*</i></label><select id="fPlan" data-k="Planning" required><option value="">Click to select</option><option>Immediately</option><option>Within 30 days</option><option>Within 1–2 months</option><option>Just exploring</option></select></div>
+        <div><label for="fScope">What do you need?</label><select id="fScope" data-k="Scope"><option value="">Click to select</option><option>Turnkey home</option><option>Modular kitchen</option><option>Wardrobes</option><option>Furniture</option><option>Home appliances</option><option>Decor and styling</option><option>Not sure yet</option></select></div>
+        <div><label for="fName">Full name <i>*</i></label><input id="fName" data-k="Name" autocomplete="name" required></div>
+        <div><label for="fPhone">Mobile <i>*</i></label><input id="fPhone" type="tel" data-k="Mobile" autocomplete="tel" placeholder="+91" required></div>
+        <div><label for="fEmail">Email</label><input id="fEmail" type="email" data-k="Email" autocomplete="email"></div>
+        <div><label for="fBhk">Home size</label><select id="fBhk" data-k="Home"><option value="">Click to select</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>4+ BHK / Villa</option></select></div>
+        <div><label for="fProp">Property / community name</label><input id="fProp" data-k="Property" placeholder="e.g. My Home Bhooja"></div>
+        <div><label for="fBudget">Budget <i>*</i></label><select id="fBudget" data-k="Budget" required><option value="">Click to select</option><option>Under ₹5L</option><option>₹5L – ₹10L</option><option>₹10L – ₹20L</option><option>Above ₹20L</option></select></div>
+        <div><label for="fArea">Locality <i>*</i></label><input id="fArea" data-k="Locality" placeholder="e.g. Gachibowli" required></div>
+        <div><label for="fPin">Pincode</label><input id="fPin" inputmode="numeric" maxlength="6" data-k="Pincode"></div>
+      </div>
+      <label class="agree"><input type="checkbox" id="fAgree" checked> I'm happy for INLAY to call or WhatsApp me about my home, and I agree to the Terms of Use.</label>
+      <button type="submit" class="btn btn-royal submit">Get my free estimate</button>
+    </form>
+    <div class="thanks" id="thanks">
+      <div class="tick"><svg><use href="#i-check"/></svg></div>
+      <h3>Thank you.</h3>
+      <p class="sub">Please send the prepared message in WhatsApp to complete your enquiry. Our team can then get back to you.</p>
+      <button class="btn btn-royal" data-mclose>Close</button>
+    </div>
+  </div>
+</div>
+
