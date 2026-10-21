@@ -1,4 +1,5 @@
 
+
 :root{
   --plum:#26003F;      /* deep plum: dark grounds */
   --royal:#36015B;     /* royal purple: primary */
@@ -134,7 +135,7 @@ svg.i{width:16px;height:16px;flex:none}
 .circ:hover{background:var(--lilac);color:var(--plum);border-color:var(--lilac)}
 .circ.dk{border-color:rgba(54,1,91,.3);color:var(--royal);background:none}
 .circ.dk:hover{background:var(--royal);color:var(--white);border-color:var(--royal)}
-@media (max-width:640px){.hero .cap,.hero .navb{display:none}.hero .chips{margin-top:28px}.hero::after{background:linear-gradient(0deg,rgba(38,0,63,.92) 10%,rgba(38,0,63,.45) 70%,rgba(38,0,63,.35))}.hero .copy{align-items:flex-end;padding-bottom:110px}}
+@media (max-width:640px){.hero .cap,.hero .navb{display:none}.hero .chips{margin-top:28px}.hero::after{background:linear-gradient(0deg,rgba(38,0,63,.88) 0%,rgba(38,0,63,.62) 30%,rgba(38,0,63,.18) 58%,rgba(38,0,63,0) 78%),linear-gradient(180deg,rgba(38,0,63,.35) 0%,rgba(38,0,63,0) 14%)}.hero .copy{align-items:flex-end;padding-bottom:110px}}
 
 /* ---------- services ---------- */
 .services{padding:110px 0 120px;background:var(--paper)}
@@ -587,6 +588,30 @@ body.booting{overflow:hidden}
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+[hidden]{display:none!important}
+html{scroll-padding-top:88px}
+
+/* ===== fixes 21-10-2026 ===== */
+/* hero: visible slow zoom + crossfade, also on phones */
+.hero .slide .bg{transform:scale(1.12);transition:transform 7s ease-out,opacity 1.2s}
+.hero .slide.on .bg{transform:scale(1)}
+.hero.ready .slide.on .bg{transition:transform 7s ease-out}
+@media (max-width:640px){
+  .m-hide{display:none}
+  .ghost{display:none}
+  .hero .dots{position:relative;z-index:4}
+  .hero .dots button{height:20px;padding:8px 0;background-clip:content-box}
+  .hero .dots button.on{background-clip:content-box}
+  .hero .acts .btn{white-space:nowrap;letter-spacing:.1em;padding:15px 12px}
+}
+/* reduced-motion: keep the slideshow, drop only the zoom */
+@media (prefers-reduced-motion:reduce){
+  .hero .slide{transition:opacity 1s ease!important}
+  .hero .slide .bg,.hero .slide.on .bg{transform:none!important;transition:none!important}
+}
+
+@media (max-width:640px){.hero h1,.hero p.desc,.hero .num,.hero .chips{text-shadow:0 1px 2px rgba(20,0,34,.45),0 4px 22px rgba(20,0,34,.55)}}
 
 /* Opaque navigation preserves readability on every section. */
 .hdr,.hdr.solid{background:var(--plum);backdrop-filter:none;box-shadow:0 1px 0 rgba(185,140,224,.22)}
