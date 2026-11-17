@@ -106,15 +106,22 @@
   $$('.menu a[data-scope]').forEach(function(a){ a.addEventListener('click',function(){ dd.classList.remove('open'); }); });
   $$('[data-mclose]').forEach(function(b){ b.addEventListener('click',mclose); });
   addEventListener('keydown',function(e){ if(e.key==='Escape'){ mclose(); drw(false); } });
-  form.addEventListener('submit',function(e){
-    e.preventDefault(); var ok=true;
-    $$('[required]',form).forEach(function(f){ var bad=!f.value.trim()||(f.id==='fPhone'&&f.value.replace(/\D/g,'').length<10); f.classList.toggle('bad',bad); if(bad) ok=false; });
-    if(!$('#fAgree').checked) ok=false;
-    if(!ok || !form.reportValidity()) return;
-    var lines=['Hi INLAY, I would like a free estimate for my home.'];
-    $$('[data-k]',form).forEach(function(f){ if(f.value.trim()) lines.push(f.dataset.k+': '+f.value.trim()); });
-    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
-    form.style.display='none'; thanks.style.display='block';
+  var enquiryKey=null, enquiryBusy=false;
+  var enquiryStatus=document.createElement('p'); enquiryStatus.setAttribute('role','status'); enquiryStatus.setAttribute('aria-live','polite'); form.appendChild(enquiryStatus);
+  form.addEventListener('submit',async function(e){
+    e.preventDefault(); if(enquiryBusy)return; var ok=true;
+    $$('[required]',form).forEach(function(f){ var bad=!f.value.trim()||(f.id==='fPhone'&&f.value.replace(/\D/g,'').length<10); f.classList.toggle('bad',bad); if(bad)ok=false; });
+    if(!$('#fAgree').checked)ok=false;
+    if(!ok||!form.reportValidity())return;
+    var lines=[];$$('[data-k]',form).forEach(function(f){if(f.value.trim())lines.push(f.dataset.k+': '+f.value.trim());});
+    var payload={name:$('#fName').value.trim(),phone:$('#fPhone').value.trim(),email:$('#fEmail').value.trim(),locality:$('#fArea').value.trim(),scope:$('#fScope').value,message:lines.join('\n'),landing_url:location.origin+location.pathname};
+    var params=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(params.get(k))payload[k]=params.get(k).slice(0,1000);});
+    if(!enquiryKey)enquiryKey=crypto.randomUUID();
+    var submit=form.querySelector('[type="submit"]'); enquiryBusy=true;submit.disabled=true;enquiryStatus.textContent='Sending your enquiry…';
+    try{var response=await fetch('https://inlay-crm.vercel.app/api/enquiries',{method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':enquiryKey},body:JSON.stringify(payload)});var result=await response.json();if(!response.ok||!result.accepted)throw new Error(result.error||'Your enquiry could not be saved. Please try again.');
+      enquiryKey=null;form.style.display='none';thanks.style.display='block';enquiryStatus.textContent='';
+    }catch(error){enquiryStatus.textContent=error.message||'Unable to connect. Your details are still here; please try again.';}
+    finally{enquiryBusy=false;submit.disabled=false;}
   });
   $$('input,select',form).forEach(function(f){ f.addEventListener('input',function(){ f.classList.remove('bad'); }); });
 })();
